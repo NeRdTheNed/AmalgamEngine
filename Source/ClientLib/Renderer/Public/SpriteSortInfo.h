@@ -43,6 +43,13 @@ struct SpriteSortInfo {
     /** True if this sprite has been visited on the current topological
         sort pass. */
     bool visited{false};
+
+    SpriteSortInfo(const Sprite* inSprite, BoundingBox inWorldBounds, SDL_Rect inScreenExtent)
+    : sprite{inSprite}
+    , worldBounds{inWorldBounds}
+    , screenExtent{inScreenExtent}
+    {
+    }
 };
 
 } // End namespace Client

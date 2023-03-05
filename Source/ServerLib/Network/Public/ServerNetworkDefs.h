@@ -27,6 +27,15 @@ typedef std::unordered_map<NetworkID, std::shared_ptr<Client>> ClientMap;
 struct ClientConnected {
     /** The ID of the client that connected. */
     NetworkID clientID{0};
+
+    ClientConnected()
+    {
+    }
+
+    ClientConnected(NetworkID inClientID)
+    : clientID{inClientID}
+    {
+    }
 };
 
 /**
@@ -35,6 +44,15 @@ struct ClientConnected {
 struct ClientDisconnected {
     /** The ID of the client that disconnected. */
     NetworkID clientID{0};
+
+    ClientDisconnected()
+    {
+    }
+
+    ClientDisconnected(NetworkID inClientID)
+    : clientID{inClientID}
+    {
+    }
 };
 
 } // End namespace Server

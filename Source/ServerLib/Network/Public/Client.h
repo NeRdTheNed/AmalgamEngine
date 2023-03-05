@@ -129,6 +129,16 @@ private:
 
         /** The tick that the message corresponds to. */
         Uint32 tick;
+
+        QueuedMessage()
+        {
+        }
+
+        QueuedMessage(BinaryBufferSharedPtr inMessage, Uint32 inTick)
+        : message{inMessage}
+        , tick{inTick}
+        {
+        }
     };
     /** Holds messages to be sent with the next call to sendWaitingMessages. */
     moodycamel::ReaderWriterQueue<QueuedMessage> sendQueue;

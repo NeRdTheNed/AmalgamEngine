@@ -20,6 +20,16 @@ public:
     /** The Y-axis coordinate of this position. */
     int y{0};
 
+    DiscretePosition()
+    {
+    }
+
+    DiscretePosition(int inX, int inY)
+    : x{inX}
+    , y{inY}
+    {
+    }
+
     bool operator==(const DiscretePosition<T>& other) const
     {
         return (x == other.x) && (y == other.y);

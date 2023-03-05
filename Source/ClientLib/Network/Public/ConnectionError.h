@@ -16,6 +16,15 @@ struct ConnectionError {
 
     /** The type of connection error that occurred. */
     Type type{Type::Disconnected};
+
+    ConnectionError()
+    {
+    }
+
+    ConnectionError(Type inUpdateType)
+    : type{inUpdateType}
+    {
+    }
 };
 
 } // End namespace Client

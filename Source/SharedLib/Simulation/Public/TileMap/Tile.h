@@ -29,6 +29,12 @@ public:
             Tiles don't move, so we can calculate this ahead of time and save
             it here. */
         BoundingBox worldBounds{};
+
+        SpriteLayer(Sprite inSprite, BoundingBox inWorldBounds)
+        : sprite{inSprite}
+        , worldBounds{inWorldBounds}
+        {
+        }
     };
 
     /** The layers of sprites that make up this tile, ordered bottom to top.

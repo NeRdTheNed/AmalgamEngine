@@ -41,6 +41,28 @@ struct NpcUpdate {
     /** If informationType == ImplicitConfirmation, contains the confirmed tick.
      */
     Uint32 tickNum = 0;
+
+    NpcUpdate()
+    {
+    }
+
+    NpcUpdate(NpcUpdateType inUpdateType)
+    : updateType{inUpdateType}
+    {
+    }
+
+    NpcUpdate(NpcUpdateType inUpdateType, std::shared_ptr<const MovementUpdate> inMessage)
+    : updateType{inUpdateType}
+    , message{inMessage}
+    {
+    }
+
+    NpcUpdate(NpcUpdateType inUpdateType, std::shared_ptr<const MovementUpdate> inMessage, Uint32 inTickNum)
+    : updateType{inUpdateType}
+    , message{inMessage}
+    , tickNum{inTickNum}
+    {
+    }
 };
 
 } // End namespace Client
