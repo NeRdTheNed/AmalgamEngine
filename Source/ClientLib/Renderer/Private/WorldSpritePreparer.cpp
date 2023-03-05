@@ -110,14 +110,14 @@ void WorldSpritePreparer::gatherSpriteInfo(const Camera& camera, double alpha)
 
                 // If this sprite has a bounding box, push it to be sorted.
                 if (layer.sprite.hasBoundingBox) {
-                    spritesToSort.emplace_back(&(layer.sprite),
-                                               layer.worldBounds, screenExtent);
+                    spritesToSort.emplace_back() = {&(layer.sprite),
+                                               layer.worldBounds, screenExtent};
                 }
                 else {
                     // No bounding box, push it straight into the sorted
                     // sprites vector.
-                    sortedSprites.emplace_back(&(layer.sprite), BoundingBox{},
-                                               screenExtent);
+                    sortedSprites.emplace_back() = {&(layer.sprite), BoundingBox{},
+                                               screenExtent};
                 }
             }
         }
@@ -147,7 +147,7 @@ void WorldSpritePreparer::gatherSpriteInfo(const Camera& camera, double alpha)
                 Transforms::modelToWorldCentered(sprite.modelBounds, lerp)};
 
             // Push the entity's render info for this frame.
-            spritesToSort.emplace_back(&sprite, worldBox, screenExtent);
+            spritesToSort.emplace_back() = {&sprite, worldBox, screenExtent};
         }
     }
 }

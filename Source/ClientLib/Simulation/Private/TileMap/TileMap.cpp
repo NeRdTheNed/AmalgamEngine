@@ -30,7 +30,7 @@ TileMap::TileMap(SpriteData& inSpriteData)
         // Fill every tile with a ground layer.
         const Sprite& ground{spriteData.get("test_6")};
         for (Tile& tile : tiles) {
-            tile.spriteLayers.emplace_back(ground, BoundingBox{});
+            tile.spriteLayers.emplace_back() = {ground, BoundingBox{}};
         }
 
         // Add some rugs to layer 1.

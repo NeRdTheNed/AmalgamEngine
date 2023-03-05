@@ -81,9 +81,9 @@ void TileUpdateSystem::sendTileUpdates()
             ClientSimData& client{clientView.get<ClientSimData>(entity)};
 
             // Push the tile info.
-            workingUpdates[client.netID].tileInfo.emplace_back(
+            workingUpdates[client.netID].tileInfo.emplace_back() = {
                 tilePos.x, tilePos.y, static_cast<Uint8>(layerCount),
-                static_cast<Uint8>(lowestDirtyLayerIndex));
+                static_cast<Uint8>(lowestDirtyLayerIndex)};
 
             // Push the numericID of the lowest updated layer and all layers
             // above it.

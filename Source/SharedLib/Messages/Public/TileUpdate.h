@@ -42,18 +42,6 @@ public:
             When an update only contains erased layers, this will be the lowest
             erased layer index. */
         Uint8 startLayerIndex{0};
-
-        TileInfo()
-        {
-        }
-
-        TileInfo(int inTileX, int inTileY, Uint8 inLayerCount, Uint8 inStartLayerIndex)
-        : tileX{inTileX}
-        , tileY{inTileY}
-        , layerCount{inLayerCount}
-        , startLayerIndex{inStartLayerIndex}
-        {
-        }
     };
 
     /** Holds tile info, in the same order as updatedLayers. */
