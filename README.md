@@ -49,6 +49,16 @@ Note: This is only tested on Ubuntu 20.04. If you have experience in multi-distr
    1. You can optionally add `-DAM_BUILD_SPRITE_EDITOR` to build the sprite editor.
 1. `ninja all`
 
+### macOS
+Note: This is only tested on MacOS 12.
+
+1. Use the homebrew package manager to install dependencies: brew install make cmake ninja sdl2 sdl2_image sdl2_mixer sdl2_ttf sdl2_gfx sdl2_net
+1. (From the base of the repo) `mkdir -p Build/MacOS/Release`
+1. `cd Build/MacOS/Release`
+1. `cmake -DCMAKE_BUILD_TYPE=Release -G Ninja ../../../`
+   1. You can optionally add `-DAM_BUILD_SPRITE_EDITOR` to build the sprite editor.
+1. `ninja all`
+
 ## Packaging
 Note: You rarely need to package the engine by itself, this section just provides canonical instructions. Instead, see the Template Projects section.
 
