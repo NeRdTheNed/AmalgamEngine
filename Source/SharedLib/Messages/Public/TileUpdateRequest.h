@@ -27,6 +27,18 @@ public:
     /** The new sprite's numeric ID. */
     int numericID{-1};
 
+    TileUpdateRequest()
+    {
+    }
+
+    TileUpdateRequest(int inTileX, int inTileY, Uint8 inLayerIndex, int inNumericID)
+    : tileX{inTileX}
+    , tileY{inTileY}
+    , layerIndex{inLayerIndex}
+    , numericID{inNumericID}
+    {
+    }
+
     //--------------------------------------------------------------------------
     // Non-replicated data
     //--------------------------------------------------------------------------
