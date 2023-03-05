@@ -155,8 +155,11 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/Libraries/AmalgamUI/"
 
 # Some compilers (mainly Clang) may not support jthread yet.
 # When using Clang, this provides an implementation of jthread.
-add_subdirectory("${PROJECT_SOURCE_DIR}/Libraries/jthread/"
-                 "${PROJECT_BINARY_DIR}/Libraries/jthread/")
+if(CMAKE_C_COMPILER_ID MATCHES "Clang|AppleClang")
+    option(BUILD_TESTING "Build jthread tests." OFF)
+    add_subdirectory("${PROJECT_SOURCE_DIR}/Libraries/jthread/"
+                     "${PROJECT_BINARY_DIR}/Libraries/jthread/")
+endif()
 
 ###############################################################################
 # Source

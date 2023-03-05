@@ -32,8 +32,11 @@ target_link_libraries(ClientLib
         EnTT::EnTT
         QueuedEvents
         SharedLib
-        jthread
 )
+
+if(CMAKE_C_COMPILER_ID MATCHES "Clang|AppleClang")
+    target_link_libraries(ClientLib PUBLIC jthread)
+endif()
 
 # Compile with C++20.
 target_compile_features(ClientLib PRIVATE cxx_std_20)
