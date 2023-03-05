@@ -101,6 +101,12 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/Libraries/bitsery/"
                  "${PROJECT_BINARY_DIR}/Libraries/bitsery/"
                  EXCLUDE_FROM_ALL)
 
+# Some compilers (mainly Clang) may not support jthread yet.
+# When using Clang, this provides an implementation of jthread.
+if(CMAKE_C_COMPILER_ID MATCHES "Clang|AppleClang")
+    include_directories("${PROJECT_SOURCE_DIR}/Libraries/jthread/include")
+endif()
+
 # Configure Tracy.
 option(TRACY_ENABLE "Enable Tracy profiling." OFF)
 option(TRACY_ON_DEMAND "Wait for connection before starting profiling." ON)
